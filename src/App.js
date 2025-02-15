@@ -1,22 +1,24 @@
+import { Link } from 'react-router-dom';
 import logo from './media/logo.PNG';
+import ig from './media/Instagram_icon.png';
+import YT from './media/youtube.png';
+import email from './media/email_icon.png';
 import './styles/App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Why God Ministries</h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Our page is under construction. Please visit us at:
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='social_links]_container'>
+          <a href="https://www.youtube.com/@whygodministries" target="_blank" className="social_link"><img src={YT} alt="Youtube page" className="social_icon"/></a>
+          <a href="https://www.instagram.com/whygodministries/" target="_blank"><img src={ig} alt="Instagram page" className="social_icon"/></a>
+          <a href="https://www.instagram.com/whygodministries/" target="_blank"><img src={email} alt="Email icon to open contact form" className="social_icon"/></a>
+        </div>
       </header>
     </div>
   );

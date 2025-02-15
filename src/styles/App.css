@@ -14,7 +14,7 @@
 } */
 
 .App-header {
-  background-color: #282c34;
+  background-color: #342d2c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.social_link_container {
+  display: flex;
+}
+
+.social_link {
+  margin-right: 25px;
+}
+
+.social_icon {
+  height: 35px;
+  width: auto;
+  margin-top: 20px;
 }
