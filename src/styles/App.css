@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
 }
 
 .App-link {
@@ -42,7 +43,7 @@
 }
 
 .social_link {
-  margin-right: 25px;
+  margin-left: 20px;
 }
 
 .social_icon {
