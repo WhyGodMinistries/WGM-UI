@@ -18,7 +18,7 @@ function App() {
         <div className='social_links]_container'>
           <a href="https://www.youtube.com/@whygodministries" target="_blank"><img src={YT} alt="Youtube page" className="social_icon"/></a>
           <a href="https://www.instagram.com/whygodministries/" target="_blank" className="social_link"><img src={ig} alt="Instagram page" className="social_icon"/></a>
-          <a href="https://www.instagram.com/whygodministries/" className="social_link"><img src={email} alt="Email icon to open contact form" className="social_icon"/></a>
+          <a href="mailto:info@whygodministries.com" className="social_link"><img src={email} alt="Email icon to open contact form" className="social_icon"/></a>
         </div>
       </header>
     </div>
