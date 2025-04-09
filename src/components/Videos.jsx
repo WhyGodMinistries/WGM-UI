@@ -56,6 +56,8 @@ const YouTubeFeed = () => {
 
   if (loading) return <p>Loading videos...</p>;
 
+  console.log("API key in production:", process.env.REACT_APP_YOUTUBE_API_KEY);
+
   return (
     <main>
       <section className="youtube-feed-container">
