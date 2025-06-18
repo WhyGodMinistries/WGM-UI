@@ -18,9 +18,9 @@ function NavbarComponent() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" className='navbarLink'>Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" className='navbarLink'>About Us</Nav.Link>
+            <Nav.Link as={Link} to="/about" className='navbarLink'>About</Nav.Link>
             <Nav.Link as={Link} to="/videos" className='navbarLink'>Videos</Nav.Link>
-            <Nav.Link as={Link} to="/videos" className='navbarLink'>Topics</Nav.Link>
+            <Nav.Link as={Link} to="/topics" className='navbarLink'>Topics</Nav.Link>
           </Nav>
           <div className="iconWrapper">
             <a href="https://www.instagram.com/whygodministries/" target="_blank" rel="noopener noreferrer" className="iconStyle">

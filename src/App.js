@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavbarComponent from './components/NavbarComponent';
 import YouTubeFeed from './components/Videos';
 import AboutUs from './components/AboutUs';
+import Topics from './components/Topics';
 import logo from './media/logo.PNG';
 import './styles/App.css';
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/videos" element={<YouTubeFeed />} />
+        <Route path="/topics" element={<Topics />} />
       </Routes>
     </Router>
   );

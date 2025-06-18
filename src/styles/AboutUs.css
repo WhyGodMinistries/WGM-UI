@@ -1,0 +1,15 @@
+#aboutUsContainer {
+    background-color: #342d2c;
+    padding: 80px;
+    color: white;
+}
+
+#title {
+    text-align: center;
+}
+
+#aboutText {
+    padding: 0 200px;
+    font-size: 24px;
+    line-height: 1.6em;
+}
