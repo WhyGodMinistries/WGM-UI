@@ -5,6 +5,7 @@ import NavbarComponent from './components/NavbarComponent';
 import YouTubeFeed from './components/Videos';
 import AboutUs from './components/AboutUs';
 import Topics from './components/Topics';
+import ContactForm from './components/ContactForm';
 import logo from './media/logo.PNG';
 import './styles/App.css';
 
@@ -14,6 +15,7 @@ function HomePage() {
       <header className="App-header">
         <h1 style={{ fontFamily: 'Cinzel', fontWeight: '600' }}>Why God Ministries</h1>
         <img src={logo} className="App-logo" alt="logo" />
+        <h3 style={{ textDecoration: 'italic', marginTop: '20px' }}>Seek and you shall find</h3>
       </header>
       <YouTubeFeed />
     </div>
@@ -29,6 +31,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/videos" element={<YouTubeFeed />} />
         <Route path="/topics" element={<Topics />} />
+        <Route path="/contact" element={<ContactForm />} />
       </Routes>
     </Router>
   );
