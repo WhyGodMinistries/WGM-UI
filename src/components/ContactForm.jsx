@@ -26,7 +26,6 @@ export default function ContactFormEmailJS() {
         formEl,
         publickey
       );
-
       formEl.reset();
       setStatus("success");
     } catch (err) {
