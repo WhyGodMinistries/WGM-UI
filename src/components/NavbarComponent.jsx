@@ -48,21 +48,34 @@ function NavbarComponent() {
               {/* TikTok SVG */}
               <svg 
                 className="niftybutton" 
-                style={{ display: 'block', fill: 'currentColor' }} 
-                viewBox="0 0 512 512" 
+                viewBox="0 -15 550 550" 
                 preserveAspectRatio="xMidYMid meet"
               >
                 <title>TikTok social icon</title>
+                <g transform='translate(-20,0)'>
                 <path d="M412.19 152.06c-29.62-17.47-52.46-46.27-60.75-80.48-1.86-7.61-2.88-15.66-2.88-23.91h-81.5l-.14 236.36c-6.52-1.8-13.5-2.77-20.73-2.77-37.46 0-67.83 30.36-67.83 67.82s30.37 67.82 67.83 67.82c37.46 0 67.82-30.36 67.82-67.82V208.88c34.66 23.86 76.85 37.86 122.46 37.86v-82.8c-8.74.01-17.48-1.71-25.28-4.88z"/>
+              </g>
               </svg>
             </a>
-            {/* <a href="mailto:info@whygodministries.com" className="iconStyle">
-              {/* Email SVG */}
-              {/* <svg className="niftybutton" style={{ display: 'block', fill: 'currentColor' }} viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"> */}
-                {/* <title>Email icon</title> */}
-                {/* <path d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z" /> */}
-                {/* </svg> */}
-            {/* </a> */}
+            <a 
+              href="https://music.youtube.com/playlist?list=PLGn4G_8YYUBHtXb5Av_620FvmrfLx99sP&si=qxn7XLQ4dAa7ot_v" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="iconStyle"
+            >
+              {/* Podcast / Microphone SVG */}
+              <svg 
+                className="niftybutton" 
+                viewBox="0 0 550 550" 
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <title>Podcast icon</title>
+                <g transform='translate(15,0)'>
+                <path d="M256 352c53 0 96-43 96-96V128c0-53-43-96-96-96s-96 43-96 96v128c0 53 43 96 96 96z"/>
+                <path d="M368 224v32c0 61.9-50.1 112-112 112s-112-50.1-112-112v-32h-32v32c0 74 56.3 135.2 128 143.2V448h-64v32h160v-32h-64v-48.8c71.7-8 128-69.2 128-143.2v-32h-32z"/>
+              </g>
+              </svg>
+            </a>
           </div>
         </Navbar.Collapse>
       </Container>

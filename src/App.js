@@ -13,9 +13,9 @@ function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ fontFamily: 'Cinzel', fontWeight: '600' }}>Why God Ministries</h1>
+        <h1 style={{ fontFamily: 'Cinzel', fontWeight: '600', fontSize: '80px' }}>Why God Ministries</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <h3 style={{ textDecoration: 'italic', marginTop: '20px' }}>Seek and you shall find</h3>
+        <h3 style={{ textDecoration: 'italic', fontSize: '24px', fontFamily: 'Open Sans'}}>Evidence God is Real and The Bible is True</h3>
       </header>
       <YouTubeFeed />
     </div>
