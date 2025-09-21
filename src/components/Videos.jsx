@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './../styles/YouTubeFeed.css';
 
@@ -7,7 +7,8 @@ const YouTubeFeed = () => {
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
 
-  const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+  //const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+  const API_KEY = 'AIzaSyDOXU53I6ldwOCoslVWKNYYuQ3Ba_4Z3oc';
   const CHANNEL_ID = process.env.REACT_APP_YOUTUBE_CHANNEL_ID;
 
   // Helper: Convert ISO 8601 duration to seconds

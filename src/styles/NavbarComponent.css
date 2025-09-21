@@ -66,8 +66,8 @@
 }
 
 .iconStyle svg {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .iconStyle {
-  width: 60px; /* or use % or vw for responsiveness */
+  width: 50px; /* or use % or vw for responsiveness */
   height: auto;
 }
 
@@ -88,7 +88,7 @@
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
   #container {
     flex-direction: row;
     justify-content: space-between;
@@ -108,7 +108,7 @@
     order: 2;
     margin-left: auto;
     position: absolute;
-    top: 10px;
+    /* top: 10px; */
     right: 16px;
     z-index: 1050;
   }
@@ -118,7 +118,15 @@
     margin-top: 56px; /* avoid overlapping the toggle */
   }
 
+  .navlink-wrapper {
+    position: relative;
+    flex-direction: row;
+    /* align-items: center; */
+    width: 100%;
+  }
+
   .navbarLink {
     padding: 10px 0;
+    position: relative;
   }
 }
