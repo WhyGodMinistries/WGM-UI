@@ -4,7 +4,12 @@
   gap: 12px; 
 }
 
-.contactForm label { display: grid; gap: 6px; font-weight: 600; }
+.contactForm label { 
+  display: grid; 
+  gap: 6px; 
+  font-weight: 600; 
+}
+
 .contactForm input, .contactForm textarea {
   padding: 10px; border: 1px solid #ddd; border-radius: 8px; font: inherit;
 }
