@@ -6,6 +6,7 @@ import YouTubeFeed from './components/Videos';
 import AboutUs from './components/AboutUs';
 import Topics from './components/Topics';
 import ContactForm from './components/ContactForm';
+import FooterComponent from './components/FooterComponent';
 import logo from './media/logo.PNG';
 import './styles/App.css';
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/topics" element={<Topics />} />
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
+          <FooterComponent />
     </Router>
   );
 }
