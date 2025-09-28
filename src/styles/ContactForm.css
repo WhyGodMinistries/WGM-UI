@@ -1,8 +1,25 @@
-.contactForm { max-width: 520px; display: grid; gap: 12px; }
+.contactForm { 
+  max-width: 520px; 
+  display: grid; 
+  gap: 12px; 
+}
+
 .contactForm label { display: grid; gap: 6px; font-weight: 600; }
 .contactForm input, .contactForm textarea {
   padding: 10px; border: 1px solid #ddd; border-radius: 8px; font: inherit;
 }
 .contactForm button {
-  padding: 10px 14px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 14px; 
+  border: none; 
+  border-radius: 8px; 
+  font-weight: 700; 
+  cursor: pointer;
+  background-color: rgb(108, 196, 193);;
+}
+
+.contactFormContainer {
+  background-color: #342d2c;
+  padding: 80px 100px 150px;
+  color: white;
 }
