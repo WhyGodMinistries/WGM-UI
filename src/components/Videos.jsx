@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import logo from '../media/logo.PNG';
 import './../styles/YouTubeFeed.css';
 
 const YouTubeFeed = () => {
@@ -99,11 +100,13 @@ const YouTubeFeed = () => {
                   className="youtube-iframe"
                   src={`https://www.youtube.com/embed/${video.id}`}
                   title={video.snippet.title}
-                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-                <p className="video-title">{video.snippet.title}</p>
+                <p className="video-title">
+                  <img src={logo} className="vid-logo" alt="logo" /> 
+                  <span>{video.snippet.title}</span>
+                </p>
               </motion.div>
             </article>
           ))}
