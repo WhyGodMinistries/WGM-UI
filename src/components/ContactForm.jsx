@@ -34,20 +34,20 @@ export default function ContactFormEmailJS() {
   }
 
   return (
-    <div>
+    <div className="contactFormContainer">
     <form ref={formRef} onSubmit={handleSubmit} className="contactForm" noValidate>
-      <h2>Contact us</h2>
+      <h2>Contact Us</h2>
 
       {/* Honeypot */}
       <input name="website" type="text" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
 
       <label>
-        Name
+        Full Name
         <input name="name" type="text" required />
       </label>
 
       <label>
-        Email
+        Email Address
         <input name="email" type="email" required />
       </label>
 
