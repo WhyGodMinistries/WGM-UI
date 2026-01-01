@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/FooterComponent.css';
 
 const FooterComponent = () => {
   return (
-    <footer style={{ textAlign: 'center', padding: '10px', backgroundColor: '#f0f0f0', marginTop: '20px' }}>
+    <footer className="footerContainer">
       <p>&copy; {new Date().getFullYear()} Why God Ministries. All rights reserved.</p>
     </footer>
   );

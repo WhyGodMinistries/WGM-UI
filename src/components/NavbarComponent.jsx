@@ -19,7 +19,7 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/" className='navbarLink'>Home</Nav.Link>
             <Nav.Link as={Link} to="/about" className='navbarLink'>About</Nav.Link>
             <Nav.Link as={Link} to="/videos" className='navbarLink'>Videos</Nav.Link>
-            <Nav.Link as={Link} to="/topics" className='navbarLink'>Topics</Nav.Link>
+            {/* <Nav.Link as={Link} to="/topics" className='navbarLink'>Topics</Nav.Link> */}
             <Nav.Link as={Link} to="/contact" className='navbarLink'>Contact Us</Nav.Link>
           </Nav>
           <div className="iconWrapper">

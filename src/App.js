@@ -31,7 +31,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/videos" element={<YouTubeFeed />} />
-        <Route path="/topics" element={<Topics />} />
+        {/* <Route path="/topics" element={<Topics />} /> */}
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
           <FooterComponent />
