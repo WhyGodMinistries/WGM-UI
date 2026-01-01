@@ -8,60 +8,80 @@ const YouTubeFeed = () => {
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
 
-  const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const CHANNEL_ID = process.env.REACT_APP_YOUTUBE_CHANNEL_ID;
+  const fetchAllLongFormVideos = async () => {
+  try {
+    setLoading(true);
+    setFailed(false);
 
-  // Helper: Convert ISO 8601 duration to seconds
-  const parseDurationToSeconds = (isoDuration) => {
-    const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
-    const [, hours, minutes, seconds] = isoDuration.match(regex) || [];
-    return (
-      (parseInt(hours || 0) * 3600) +
-      (parseInt(minutes || 0) * 60) +
-      (parseInt(seconds || 0))
+    const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+    const CHANNEL_ID = process.env.REACT_APP_YOUTUBE_CHANNEL_ID;
+
+    // Step 1: Get Uploads Playlist ID
+    const channelRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${API_KEY}`
     );
+    const channelData = await channelRes.json();
+    const uploadsPlaylistId = channelData.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+
+    if (!uploadsPlaylistId) throw new Error("Uploads playlist not found.");
+
+    // Step 2: Fetch ALL playlist items
+    let allVideos = [];
+    let nextPageToken = '';
+    do {
+      const playlistRes = await fetch(
+        `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet,contentDetails&maxResults=50&pageToken=${nextPageToken}`
+      );
+      const playlistData = await playlistRes.json();
+      allVideos = [...allVideos, ...playlistData.items];
+      nextPageToken = playlistData.nextPageToken;
+    } while (nextPageToken);
+
+    // Step 3: Get durations for all video IDs (in batches of 50)
+    const allVideoIds = allVideos.map(item => item.contentDetails.videoId);
+    const chunkedIds = [];
+    for (let i = 0; i < allVideoIds.length; i += 50) {
+      chunkedIds.push(allVideoIds.slice(i, i + 50));
+    }
+
+    const parseDurationToSeconds = (isoDuration) => {
+      const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
+      const [, hours, minutes, seconds] = isoDuration.match(regex) || [];
+      return (
+        (parseInt(hours || 0) * 3600) +
+        (parseInt(minutes || 0) * 60) +
+        (parseInt(seconds || 0))
+      );
+    };
+
+      let allDetails = [];
+      for (const idChunk of chunkedIds) {
+        const ids = idChunk.join(",");
+        const detailsRes = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${ids}&part=snippet,contentDetails`
+        );
+        const detailsData = await detailsRes.json();
+        allDetails.push(...detailsData.items);
+      }
+
+      // Step 4: Filter out videos < 180 seconds
+      const filtered = allDetails.filter(item => {
+        const duration = item.contentDetails.duration;
+        return parseDurationToSeconds(duration) >= 180;
+      });
+
+      setVideos(filtered);
+    } catch (err) {
+      console.error("Error fetching videos:", err);
+      setFailed(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        // Step 1: Get latest video IDs
-        const searchRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&type=video&order=date&maxResults=50`
-        );
-
-        if (searchRes.status === 403) {
-          console.warn("API key quota exceeded or restricted.");
-          setFailed(true);
-          return;
-        }
-
-        const searchData = await searchRes.json();
-        const videoIds = searchData.items.map(item => item.id.videoId).join(',');
-
-        // Step 2: Get video durations
-        const detailsRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet,contentDetails&id=${videoIds}`
-        );
-        const detailsData = await detailsRes.json();
-
-        const filtered = detailsData.items?.filter(item => {
-          const duration = item.contentDetails.duration;
-          const durationInSeconds = parseDurationToSeconds(duration);
-          return durationInSeconds >= 180;
-        }) || [];
-
-        setVideos(filtered);
-      } catch (error) {
-        console.error("Failed to fetch videos:", error);
-        setFailed(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchVideos();
-  }, [API_KEY, CHANNEL_ID]);
+    fetchAllLongFormVideos();
+  }, []);
 
   if (loading) return <p>Loading videos...</p>;
 
