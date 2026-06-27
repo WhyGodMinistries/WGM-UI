@@ -1,7 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import './../styles/ContactForm.css';
-import { form } from "framer-motion/client";
 
 export default function ContactFormEmailJS() {
   const formRef = useRef(null);
@@ -10,6 +9,11 @@ export default function ContactFormEmailJS() {
   const publickey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
   const serviceid = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const templateid = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  
+  // Initialize EmailJS
+  if (publickey) {
+    emailjs.init(publickey);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
