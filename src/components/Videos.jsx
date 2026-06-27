@@ -31,7 +31,7 @@ const YouTubeFeed = () => {
     do {
       const playlistRes = await fetch(
         `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet,contentDetails&maxResults=50&pageToken=${nextPageToken}`
-      );
+      ); 
       const playlistData = await playlistRes.json();
       allVideos = [...allVideos, ...playlistData.items];
       nextPageToken = playlistData.nextPageToken;
